@@ -182,40 +182,38 @@ class recievingThread(QtCore.QThread):
 		self.wait()
 
 	def run(self):	# Use Try except error handling
-			while True:
-				try:
-					uno , fno , size = funcs.recieve_header(self.clientSock)
-					if fno == 999:
-						msg = funcs.recieve_message(self.clientSock,size)
-						room = msg[0:3]
-						msg = msg[3:len(msg)]
-						print("Recieved ",msg)
-						self.routeMessageSignal.emit(room,msg)	
-					elif fno == 998: # new room creation
-						msg = funcs.recieve_message(self.clientSock,size)
-						msg = msg.split(' ',1)
-						newroom = msg[0]
-						msg = msg[1]
-						self.newRoomSignal.emit(newroom,msg)
+		while True:
+			try:
+				uno , fno , size = funcs.recieve_header(self.clientSock)
+				if fno == 999:
+					msg = funcs.recieve_message(self.clientSock,size)
+					room = msg[0:3]
+					msg = msg[3:len(msg)]
+					print("Recieved ",msg)
+					self.routeMessageSignal.emit(room,msg)	
+				elif fno == 998: # new room creation
+					msg = funcs.recieve_message(self.clientSock,size)
+					msg = msg.split(' ',1)
+					newroom = msg[0]
+					msg = msg[1]
+					self.newRoomSignal.emit(newroom,msg)
 			
-					elif fno == 997: # update list
-						msg = funcs.recieve_message(self.clientSock,size)
-						self.updateListSignal.emit(msg)
-					elif fno <997:
-						uno = str(uno)
-						fno = str(fno)
-						key = uno+fno
-						data = funcs.recieve_data(self.clientSock,size)
-						room = data[0:3].decode('utf-8')
-						print("Recieved data for room "+room+" key = "+key)
-						data = data[3:]
-						self.fileSignal.emit(room,key,data)
+				elif fno == 997: # update list
+					msg = funcs.recieve_message(self.clientSock,size)
+					self.updateListSignal.emit(msg)
+				elif fno <997:
+					uno = str(uno)
+					fno = str(fno)
+					key = uno+fno
+					data = funcs.recieve_data(self.clientSock,size)
+					room = data[0:3].decode('utf-8')
+					print("Recieved data for room "+room+" key = "+key)
+					data = data[3:]
+					self.fileSignal.emit(room,key,data)
+			
+			except ConnectionError:
+				pass # to do error handling
 				
-				except ConnectionError:
-					pass # to do error handling
-					
-
-
 
 
 class clWin(QtWidgets.QMainWindow,Ui_clientWin):	
@@ -347,6 +345,7 @@ if __name__ == "__main__":
 	win.startRecieve()
 	clapp.exec_()
 	#print(hostUserName)
+	print('Exiting')
 	
 	
 	
