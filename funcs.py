@@ -79,13 +79,13 @@ def send_message(sock,uno,message,sig = 999):
 def register_client(sock):
 	mac_address = getmac()
 	while True:
-			name = input('Enter username : ')
-			send_message(sock,0,mac_address+','+name)
-			uno , fno , size = recieve_header(sock)
-			reply = recieve_message(sock,size)
-			print(reply)
-			if reply[0] == 'C':
-				break
+		name = input('Enter username : ')
+		send_message(sock,0,mac_address+','+name)
+		uno , fno , size = recieve_header(sock)
+		reply = recieve_message(sock,size)
+		print(reply)
+		if reply[0] == 'C':
+			break
 
 	uno , fno , size = recieve_header(sock)
 	print('User Number assigned = {}'.format(uno))
