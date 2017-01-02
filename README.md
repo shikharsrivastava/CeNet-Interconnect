@@ -22,9 +22,9 @@ Well, the project has lot of scope for developement, but at this stage you can i
 - type python3 Main.py
 
 How do I use it ?  
-Once you run it successfully, you'll see the regsitration window  
+Once you run it successfully, you'll see the regsitration window - 
 ![Registration Window](img/regWin.png) 
-Yo have to simply enter your desired username and you'll be known by that username in the network.
+You have to simply enter your desired username and you'll be known by that username in the network.
 Any wrong step and appropriate error message will be displayed.
 
 After successful registration you'll see the client window  
@@ -33,22 +33,21 @@ You can see all the users currently online on CeNet.
 You can request the list of online users by clicking Refresh button, although the list refreshes every 5 second.
 You can select multiple users and click the Room button to enter in a private room with them.  
 Once you enter the room, everybody will be informed that you created a new room and every person in the room will have a new data sharing window popup  
-![Shikhar Chat Window](img/Shikhar.png) The popup window on Shikhar's computer  
-![Naruto Chat Window](img/Naruto.png) The popup window on Naruto's computer  
-![goku Chat Window](img/goku.png) The popup window on goku's computer  
+![Shikhar Chat Window](img/Shikhar.png)      The popup window on Shikhar's computer  
+![Naruto Chat Window](img/Naruto.png)      The popup window on Naruto's computer  
+![goku Chat Window](img/goku.png)      The popup window on goku's computer.  
 
 All users can freely chat.  
 To share files with everybody in the room -
-- Bring the file in the current directory (Directory in which Main.py is running)
-- Enter the file name correctly in the chat box
-- Click File Send button
-- All information will be displayed in the chatbox
-- Dont close the window until file send complete signal is displayed
+- Bring the file in the current directory (Directory in which Main.py is running).
+- Enter the file name correctly in the chat box.
+- Click File Send button.
+- All information will be displayed in the chatbox.
+- Don't close the window until file send complete signal is displayed.
 - You can simultaneously chat in the room as well, but it will lag a bit due to use of single channel to limit number of used sockets.
 
 To go see the online window again click Online Button.  
 To exit the room click the Exit Button.
-
-
+You can also create as many rooms as you like and simultaneously transfer data an chat.
 
 
