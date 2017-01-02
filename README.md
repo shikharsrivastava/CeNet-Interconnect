@@ -21,4 +21,9 @@ Well, the project has lot of scope for developement, but at this stage you can i
 - open the directory
 - type python3 Main.py
 
+How do I use it ?  
+Once you run it successfully, you'll see the regsitration window  
+![alt tag](https://github.com/shikharsrivastava/CeNet-Interconnect/blob/master/img/regWin.png)
+
+
 
