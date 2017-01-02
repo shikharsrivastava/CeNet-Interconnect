@@ -13,7 +13,7 @@ clientSock = ''
 hostUserName =''
 hostUserNo = ''
 hostMacAdress = ''
-HOST = '127.0.0.1'
+HOST = '172.16.30.20'
 PORT = funcs.PORT
 
 class writingThread(QtCore.QThread):
