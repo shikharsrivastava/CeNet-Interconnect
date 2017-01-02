@@ -102,7 +102,7 @@ class chatWin(QtWidgets.QWidget,Ui_chatBox):
 		self.fileSendButton.clicked.connect(self.handleFileSend)		
 	
 	def handleClose(self):
-		message = self.hostUserName+" left the room."
+		message = self.room + self.hostUserName+" left the room."
 		try:
 			with sockLock:
 				funcs.send_message(self.clientSock,self.hostUserNo,message)
